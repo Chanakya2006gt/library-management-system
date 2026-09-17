@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexandria - Modern Academic Library & Circulation System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top-nav">
+    <div class="nav-wrapper">
+      <div class="brand">
+        <span class="brand-glyph">📚</span>
+        <div>
+          <span class="brand-title">Alexandria</span>
+          <span class="brand-sub">Campus Library System</span>
+        </div>
+      </div>
+      <div class="circulation-stats">
+        <div class="stat-pill"><span class="stat-num">4,290</span> Available Titles</div>
+        <div class="stat-pill"><span class="stat-num" id="borrowedCount">3</span> In Your Possession</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero-strip">
+      <div>
+        <h1 class="page-title">Digital Catalog & Circulation Desk</h1>
+        <p class="page-subtitle">Search physical and digital archives, request instant checkouts, and process book returns.</p>
+      </div>
+      <div class="mode-toggle">
+        <button class="role-btn active" id="btnStudent">Student Portal</button>
+        <button class="role-btn" id="btnLibrarian">Librarian Desk</button>
+      </div>
+    </div>
+
+    <!-- Search & Filter Toolbar -->
+    <div class="toolbar-box">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="catalogSearch" placeholder="Search by title, author, or ISBN (e.g., Knuth, Tanenbaum, Algorithms)...">
+      </div>
+      <div class="filter-pills">
+        <button class="tag-btn active" data-genre="all">All Genres</button>
+        <button class="tag-btn" data-genre="Computer Science">Computer Science</button>
+        <button class="tag-btn" data-genre="Software Engineering">Software Eng</button>
+        <button class="tag-btn" data-genre="Mathematics">Mathematics</button>
+      </div>
+    </div>
+
+    <!-- Catalog & Circulation Grid -->
+    <div class="catalog-grid" id="catalogGrid"></div>
+
+    <!-- Active Borrowed Books Section -->
+    <section class="circulation-ledger">
+      <div class="ledger-header">
+        <h2>Your Active Checkouts & Return Restocking</h2>
+        <span class="badge-status">Real-Time RFID Sync</span>
+      </div>
+      <div class="ledger-table-wrap">
+        <table class="ledger-table">
+          <thead>
+            <tr>
+              <th>ISBN</th>
+              <th>Book Title</th>
+              <th>Borrowed Date</th>
+              <th>Due Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="borrowedTableBody">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
